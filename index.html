@@ -4,138 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Cá Nhân</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        /* Hiệu ứng fade-in khi tải trang */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .header {
-            text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: #fff;
-            border-radius: 8px 8px 0 0;
+        /* Hiệu ứng hover cho các phần tử */
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        .header p {
-            margin: 5px 0;
+        /* Hiệu ứng cho kỹ năng */
+        .skill-item {
+            transition: all 0.3s ease;
         }
-        .section {
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
+        .skill-item:hover {
+            background-color: #2563eb;
+            transform: translateX(10px);
         }
-        .section:last-child {
-            border-bottom: none;
+        /* Hiệu ứng cho liên kết */
+        .contact-link {
+            position: relative;
+            transition: color 0.3s ease;
         }
-        .section h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-bottom: 10px;
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
         }
-        .section p, .section ul {
-            margin: 10px 0;
-            line-height: 1.6;
+        .contact-link:hover::after {
+            width: 100%;
         }
-        .section ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .skills ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .skills li {
-            background: #3498db;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 5px;
-            list-style: none;
-        }
-        .contact a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 600px) {
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
             .container {
-                margin: 10px;
-                padding: 10px;
-            }
-            .header h1 {
-                font-size: 1.8em;
-            }
-            .section h2 {
-                font-size: 1.5em;
+                margin: 1rem;
+                padding: 1rem;
             }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Nguyễn Văn A</h1>
-            <p>Lập trình viên | Hà Nội, Việt Nam</p>
-            <p>Email: nguyen.van.a@example.com | SĐT: 0123 456 789</p>
+<body class="bg-gray-100 font-sans">
+    <div class="container max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 my-8">
+        <!-- Header -->
+        <div class="header text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10 rounded-t-2xl fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold">Nguyễn Văn A</h1>
+            <p class="text-lg md:text-xl mt-2">Lập trình viên | Hà Nội, Việt Nam</p>
+            <p class="text-sm md:text-base mt-1">Email: nguyen.van.a@example.com | SĐT: 0123 456 789</p>
         </div>
-        <div class="section about">
-            <h2>Giới thiệu</h2>
-            <p>Tôi là một lập trình viên đam mê với hơn 3 năm kinh nghiệm trong phát triển web, đặc biệt là sử dụng HTML, CSS, JavaScript và các framework hiện đại. Tôi luôn tìm kiếm cơ hội để học hỏi và cải thiện kỹ năng của mình.</p>
+
+        <!-- Giới thiệu -->
+        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.2s;">
+            <h2 class="text-2xl font-semibold text-blue-600">Giới thiệu</h2>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+                Tôi là một lập trình viên đam mê với hơn 3 năm kinh nghiệm trong phát triển web, đặc biệt là sử dụng HTML, CSS, JavaScript và các framework hiện đại. Tôi luôn tìm kiếm cơ hội để học hỏi và cải thiện kỹ năng của mình.
+            </p>
         </div>
-        <div class="section education">
-            <h2>Học vấn</h2>
-            <ul>
+
+        <!-- Học vấn -->
+        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.4s;">
+            <h2 class="text-2xl font-semibold text-blue-600">Học vấn</h2>
+            <ul class="mt-4 text-gray-700 list-disc list-inside">
                 <li><strong>Cử nhân Công nghệ Thông tin</strong> - Đại học Bách Khoa Hà Nội (2018 - 2022)</li>
                 <li><strong>Chứng chỉ Lập trình Web</strong> - Trung tâm Đào tạo CNTT (2021)</li>
             </ul>
         </div>
-        <div class="section skills">
-            <h2>Kỹ năng</h2>
-            <ul>
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>React.js</li>
-                <li>Node.js</li>
-                <li>Git</li>
-                <li>SQL</li>
+
+        <!-- Kỹ năng -->
+        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.6s;">
+            <h2 class="text-2xl font-semibold text-blue-600">Kỹ năng</h2>
+            <ul class="mt-4 flex flex-wrap gap-3">
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">HTML & CSS</li>
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">JavaScript</li>
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">React.js</li>
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">Node.js</li>
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">Git</li>
+                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">SQL</li>
             </ul>
         </div>
-        <div class="section experience">
-            <h2>Kinh nghiệm làm việc</h2>
-            <ul>
+
+        <!-- Kinh nghiệm làm việc -->
+        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.8s;">
+            <h2 class="text-2xl font-semibold text-blue-600">Kinh nghiệm làm việc</h2>
+            <ul class="mt-4 text-gray-700 list-disc list-inside">
                 <li>
                     <strong>Lập trình viên Front-end</strong> - Công ty ABC (2022 - Hiện tại)
-                    <p>Phát triển và bảo trì các ứng dụng web sử dụng React.js và TypeScript. Hợp tác với nhóm thiết kế để tối ưu hóa giao diện người dùng.</p>
+                    <p class="ml-6 mt-2">Phát triển và bảo trì các ứng dụng web sử dụng React.js và TypeScript. Hợp tác với nhóm thiết kế để tối ưu hóa giao diện người dùng.</p>
                 </li>
                 <li>
                     <strong>Thực tập sinh Lập trình</strong> - Công ty XYZ (2021 - 2022)
-                    <p>Hỗ trợ phát triển website thương mại điện tử, tập trung vào HTML, CSS và JavaScript.</p>
+                    <p class="ml-6 mt-2">Hỗ trợ phát triển website thương mại điện tử, tập trung vào HTML, CSS và JavaScript.</p>
                 </li>
             </ul>
         </div>
-        <div class="section contact">
-            <h2>Liên hệ</h2>
-            <p>Email: <a href="mailto:nguyen.van.a
 
-@example.com">nguyen.van.a@example.com</a></p>
-            <p>SĐT: <a href="tel:0123456789">0123 456 789</a></p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/nguyenvana">linkedin.com/in/nguyenvana</a></p>
+        <!-- Liên hệ -->
+        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 1s;">
+            <h2 class="text-2xl font-semibold text-blue-600">Liên hệ</h2>
+            <p class="mt-4 text-gray-700">
+                Email: <a href="mailto:nguyen.van.a@example.com" class="contact-link text-blue-500">nguyen.van.a@example.com</a>
+            </p>
+            <p class="mt-2 text-gray-700">
+                SĐT: <a href="tel:0123456789" class="contact-link text-blue-500">0123 456 789</a>
+            </p>
+            <p class="mt-2 text-gray-700">
+                LinkedIn: <a href="https://linkedin.com/in/nguyenvana" class="contact-link text-blue-500">linkedin.com/in/nguyenvana</a>
+            </p>
         </div>
     </div>
 </body>
