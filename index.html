@@ -3,130 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Cá Nhân</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>CV - Nguyễn Văn A</title>
     <style>
-        /* Hiệu ứng fade-in khi tải trang */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s ease-out forwards;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            animation: fadeIn 1s ease-in-out;
+        }
+
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Hiệu ứng hover cho các phần tử */
-        .hover-scale {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .sidebar {
+            width: 35%;
+            background: #2c3e50;
+            color: #fff;
+            padding: 30px;
         }
-        .hover-scale:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+        .main-content {
+            width: 65%;
+            padding: 30px;
+            background: #f9f9f9;
         }
-        /* Hiệu ứng cho kỹ năng */
-        .skill-item {
-            transition: all 0.3s ease;
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid #fff;
+            transition: transform 0.3s ease;
         }
-        .skill-item:hover {
-            background-color: #2563eb;
-            transform: translateX(10px);
+
+        .profile-img:hover {
+            transform: scale(1.1);
         }
-        /* Hiệu ứng cho liên kết */
-        .contact-link {
-            position: relative;
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar perspective-img {
+            background: url('https://via.placeholder.com/150') no-repeat center center;
+            background-size: cover;
+        }
+
+        .sidebar h1 {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h3 {
+            color: #ecf0f1;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+            font-size: 14px;
             transition: color 0.3s ease;
         }
-        .contact-link::after {
+
+        .sidebar ul li:hover {
+            color: #1abc9c;
+        }
+
+        .main-content h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            position: relative;
+            color: #2c3e50;
+        }
+
+        .main-content h2::after {
             content: '';
+            width: 50px;
+            height: 3px;
+            background: #1abc9c;
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
+            bottom: -5px;
             left: 0;
-            background-color: #2563eb;
-            transition: width 0.3s ease;
         }
-        .contact-link:hover::after {
-            width: 100%;
+
+        .main-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 10px;
         }
-        /* Responsive adjustments */
-        @media (max-width: 640px) {
-            .container {
-                margin: 1rem;
-                padding: 1rem;
+
+        .experience, .education, .skills {
+            margin-bottom: 20px;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills li {
+            background: #1abc9c;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .skills li:hover {
+            background: #16a085;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
             }
         }
     </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="container max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 my-8">
-        <!-- Header -->
-        <div class="header text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-10 rounded-t-2xl fade-in">
-            <h1 class="text-4xl md:text-5xl font-bold">Nguyễn Văn A</h1>
-            <p class="text-lg md:text-xl mt-2">Lập trình viên | Hà Nội, Việt Nam</p>
-            <p class="text-sm md:text-base mt-1">Email: nguyen.van.a@example.com | SĐT: 0123 456 789</p>
-        </div>
+<body>
+    <div class="cv-container">
+        <div class="sidebar">
+            <div class="profile-img">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture">
+            </div>
+            <h1>Nguyễn Văn A</h1>
+            <p style="text-align: center; font-size: 14px;">Chuyên gia AI & Machine Learning</p>
+            
+            <h3>Thông tin liên hệ</h3>
+            <ul>
+                <li>Email: nguyen.vana@example.com</li>
+                <li>Số điện thoại: 0123 456 789</li>
+                <li>Địa chỉ: Hà Nội, Việt Nam</li>
+                <li>LinkedIn: linkedin.com/in/nguyenvana</li>
+            </ul>
 
-        <!-- Giới thiệu -->
-        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.2s;">
-            <h2 class="text-2xl font-semibold text-blue-600">Giới thiệu</h2>
-            <p class="mt-4 text-gray-700 leading-relaxed">
-                Tôi là một lập trình viên đam mê với hơn 3 năm kinh nghiệm trong phát triển web, đặc biệt là sử dụng HTML, CSS, JavaScript và các framework hiện đại. Tôi luôn tìm kiếm cơ hội để học hỏi và cải thiện kỹ năng của mình.
-            </p>
-        </div>
-
-        <!-- Học vấn -->
-        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.4s;">
-            <h2 class="text-2xl font-semibold text-blue-600">Học vấn</h2>
-            <ul class="mt-4 text-gray-700 list-disc list-inside">
-                <li><strong>Cử nhân Công nghệ Thông tin</strong> - Đại học Bách Khoa Hà Nội (2018 - 2022)</li>
-                <li><strong>Chứng chỉ Lập trình Web</strong> - Trung tâm Đào tạo CNTT (2021)</li>
+            <h3>Kỹ năng</h3>
+            <ul>
+                <li>Python, TensorFlow, PyTorch</li>
+                <li>Deep Learning, Computer Vision</li>
+                <li>Big Data, Cloud Computing</li>
+                <li>Thuật toán AI, NLP</li>
             </ul>
         </div>
 
-        <!-- Kỹ năng -->
-        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.6s;">
-            <h2 class="text-2xl font-semibold text-blue-600">Kỹ năng</h2>
-            <ul class="mt-4 flex flex-wrap gap-3">
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">HTML & CSS</li>
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">JavaScript</li>
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">React.js</li>
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">Node.js</li>
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">Git</li>
-                <li class="skill-item bg-blue-500 text-white px-4 py-2 rounded-full">SQL</li>
-            </ul>
-        </div>
+        <div class="main-content">
+            <h2>Giới thiệu</h2>
+            <p>Chuyên gia AI với hơn 5 năm kinh nghiệm trong phát triển các mô hình học sâu và xử lý dữ liệu lớn. Đam mê tạo ra các giải pháp AI sáng tạo để giải quyết các vấn đề thực tiễn.</p>
 
-        <!-- Kinh nghiệm làm việc -->
-        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 0.8s;">
-            <h2 class="text-2xl font-semibold text-blue-600">Kinh nghiệm làm việc</h2>
-            <ul class="mt-4 text-gray-700 list-disc list-inside">
-                <li>
-                    <strong>Lập trình viên Front-end</strong> - Công ty ABC (2022 - Hiện tại)
-                    <p class="ml-6 mt-2">Phát triển và bảo trì các ứng dụng web sử dụng React.js và TypeScript. Hợp tác với nhóm thiết kế để tối ưu hóa giao diện người dùng.</p>
-                </li>
-                <li>
-                    <strong>Thực tập sinh Lập trình</strong> - Công ty XYZ (2021 - 2022)
-                    <p class="ml-6 mt-2">Hỗ trợ phát triển website thương mại điện tử, tập trung vào HTML, CSS và JavaScript.</p>
-                </li>
-            </ul>
-        </div>
+            <div class="experience">
+                <h2>Kinh nghiệm làm việc</h2>
+                <div class="experience-item">
+                    <h3>Chuyên gia AI - Công ty ABC</h3>
+                    <p>2020 - Hiện tại</p>
+                    <p>Phát triển các mô hình AI cho dự đoán xu hướng thị trường và tối ưu hóa quy trình kinh doanh.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Kỹ sư Machine Learning - Công ty XYZ</h3>
+                    <p>2018 - 2020</p>
+                    <p>Xây dựng hệ thống nhận diện hình ảnh sử dụng các mô hình CNN và triển khai trên AWS.</p>
+                </div>
+            </div>
 
-        <!-- Liên hệ -->
-        <div class="section mt-6 p-6 bg-gray-50 rounded-lg hover-scale fade-in" style="animation-delay: 1s;">
-            <h2 class="text-2xl font-semibold text-blue-600">Liên hệ</h2>
-            <p class="mt-4 text-gray-700">
-                Email: <a href="mailto:nguyen.van.a@example.com" class="contact-link text-blue-500">nguyen.van.a@example.com</a>
-            </p>
-            <p class="mt-2 text-gray-700">
-                SĐT: <a href="tel:0123456789" class="contact-link text-blue-500">0123 456 789</a>
-            </p>
-            <p class="mt-2 text-gray-700">
-                LinkedIn: <a href="https://linkedin.com/in/nguyenvana" class="contact-link text-blue-500">linkedin.com/in/nguyenvana</a>
-            </p>
+            <div class="education">
+                <h2>Học vấn</h2>
+                <div class="education-item">
+                    <h3>Thạc sĩ Khoa học Máy tính - Đại học Bách Khoa Hà Nội</h3>
+                    <p>2016 - 2018</p>
+                    <p>Chuyên ngành: Trí tuệ nhân tạo</p>
+                </div>
+                <div class="education-item">
+                    <h3>Cử nhân Công nghệ Thông tin - Đại học Quốc gia Hà Nội</h3>
+                    <p>2012 - 2016</p>
+                </div>
+            </div>
+
+            <div class="skills">
+                <h2>Kỹ năng chuyên môn</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>TensorFlow</li>
+                    <li>PyTorch</li>
+                    <li>AWS</li>
+                    <li>SQL</li>
+                    <li>Docker</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
