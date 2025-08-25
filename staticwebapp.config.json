@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  },
+  "globalHeaders": {
+    "cache-control": "must-revalidate, max-age=6000"
+  },
+  "mimeTypes": {
+    ".json": "text/json"
+  }
+}

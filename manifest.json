@@ -1,0 +1,21 @@
+{
+  "name": "CV - Nguyễn Hồ Đức Huy",
+  "short_name": "CV Huy",
+  "description": "CV trực tuyến của Nguyễn Hồ Đức Huy - Sinh viên AI tại Đại học Đà Lạt",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#1abc9c",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=192&q=80",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=512&q=80",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
